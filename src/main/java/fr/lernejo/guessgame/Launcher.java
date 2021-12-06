@@ -2,13 +2,14 @@ package fr.lernejo.guessgame;
 
 import fr.lernejo.logger.ConsoleLogger;
 import fr.lernejo.logger.Logger;
+import fr.lernejo.logger.LoggerFactory;
 
 import java.security.SecureRandom;
 
 public class Launcher {
     public static void main(String[] args) {
 
-        Logger logger =new ConsoleLogger();
+        Logger logger = LoggerFactory.getLogger("Launcher");;
         SecureRandom random = new SecureRandom();
         long randomnumber = random.nextInt(100); // génère un nombre entre 0 (inclus) et 100 (exclus)
 
