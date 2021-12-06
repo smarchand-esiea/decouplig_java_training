@@ -3,6 +3,9 @@ package fr.lernejo.guessgame;
 import fr.lernejo.logger.Logger;
 import fr.lernejo.logger.LoggerFactory;
 
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+
 public class Simulation {
 
     private final Logger logger = LoggerFactory.getLogger("simulation");
@@ -32,11 +35,21 @@ public class Simulation {
         return false;
     }
 
-    public void loopUntilPlayerSucceed() {
-        int counter = 0 ;
-        do{
-            counter ++ ;
-        }while(!nextRound());
-        logger.log("Félicitation, jeux réussie en :"+counter+"tours");
+    public void loopUntilPlayerSucceed(long max) {
+        logger.log("Debut de la partie");
+        boolean test=nextRound();
+        int i=0;
+        long Start=System.currentTimeMillis();
+        long End =0;
+        while(!test && i<max )
+        {
+            test=nextRound();
+            i++;
+        }
+        End=System.currentTimeMillis();
+        long TimeTotal = End-Start;
+        Timestamp timestamp=new Timestamp(TimeTotal);
+        logger.log("Temps total execution: "+new SimpleDateFormat("mm:ss.SSS").format(timestamp));
     }
+
 }
