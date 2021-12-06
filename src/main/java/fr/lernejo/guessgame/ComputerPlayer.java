@@ -5,7 +5,7 @@ import fr.lernejo.logger.LoggerFactory;
 
 public class ComputerPlayer implements Player {
 
-    private final Logger logger = LoggerFactory.getLogger("player");
+    private final Logger logger = LoggerFactory.getLogger("Computerplayer");
     private long min = Long.MIN_VALUE;
     private long max = Long.MAX_VALUE;
     @Override
